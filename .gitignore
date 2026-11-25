@@ -1,0 +1,19 @@
+# Credentials and secrets
+cypress.env.json
+.env
+.env.*
+
+# Dependencies
+node_modules/
+
+# Cypress generated files
+cypress/videos/
+cypress/screenshots/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
