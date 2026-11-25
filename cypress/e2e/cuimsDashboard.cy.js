@@ -2,13 +2,13 @@ describe('CUIMS Student Dashboard', () => {
   function loginToCuims() {
     cy.visit('/Login.aspx');
 
-    cy.env(['CUIMS_UID', 'CUIMS_PASSWORD']).then(
-      ({ CUIMS_UID, CUIMS_PASSWORD }) => {
-        expect(CUIMS_UID, 'CUIMS UID configured')
+    cy.env(['username', 'password']).then(
+      ({ username, password }) => {
+        expect(username, 'CUIMS UID configured')
           .to.be.a('string')
           .and.not.be.empty;
 
-        expect(CUIMS_PASSWORD, 'CUIMS password configured')
+        expect(password, 'CUIMS password configured')
           .to.be.a('string')
           .and.not.be.empty;
 
@@ -17,7 +17,7 @@ describe('CUIMS Student Dashboard', () => {
           .first()
           .should('be.visible')
           .clear()
-          .type(CUIMS_UID);
+          .type(username);
 
         // Continue to the password step
         cy.contains('NEXT').click();
@@ -26,7 +26,7 @@ describe('CUIMS Student Dashboard', () => {
         cy.get('input[type="password"]:visible')
           .should('be.visible')
           .clear()
-          .type(CUIMS_PASSWORD, { log: false });
+          .type(password, { log: false });
       }
     );
 
